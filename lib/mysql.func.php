@@ -10,8 +10,8 @@
 */
 function connect(){
     $link = mysqli_connect(DB_HOST, DB_USER, DB_PWD) or die('数据库链接失败Error：'.mysqli_errno().':'.mysqli_error());
-    mysqli_set_charset(DB_CHARSET);
-    mysqli_select_db(DB_DBNAME) or die('指定数据库打开失败！');
+    mysqli_set_charset($link, DB_CHARSET);
+    mysqli_select_db($link,DB_DBNAME) or die('指定数据库打开失败！');
     return $link;
 }
 /**
