@@ -12,9 +12,14 @@ $verify = htmlspecialchars($_POST['verify']);
 $verify1 = $_SESSION['verifyCode'];
 if($verify == $verify1){
     $sql = "SELECT * FROM imooc_admin WHERE username='{$username}' AND password='{$password}'";
-    $res = checkAdmin($sql);
-    var_dump($res);
+    $row = checkAdmin($sql);
+    if($row){
+        $_SESSION['adminName'] = $row['username'];
+        echo $_SESSION['adminName'];
+        alertMsg('登录成功！', 'index.php');
+    }else{
+        alertMsg('登录失败，请重新登录！', 'login.php');
+    }
 }else{
-    echo "<script>alert('验证码错误！');</script>";
-    echo "<script>window.location='index.php';</script>>";
+    alertMsg('验证码错误！', 'login.php');
 }
