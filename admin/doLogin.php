@@ -15,7 +15,7 @@ if($verify == $verify1){
     $row = checkAdmin($sql);
     if($row){
         $_SESSION['adminName'] = $row['username'];
-        echo $_SESSION['adminName'];
+        $_SESSION['adminId'] = $row['id'];
         alertMsg('登录成功！', 'index.php');
     }else{
         alertMsg('登录失败，请重新登录！', 'login.php');
