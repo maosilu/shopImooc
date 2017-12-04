@@ -7,7 +7,7 @@ require_once '../include.php';
 <head>
 <meta charset="utf-8">
 <title>-.-</title>
-<link rel="stylesheet" href="/public/admin/styles/backstage.css">
+<link rel="stylesheet" href="../public/admin/styles/backstage.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@ require_once '../include.php';
             <div class="cont">
                 <div class="title">后台管理</div>
       	 		<!-- 嵌套网页开始 -->         
-                <iframe src="main.php"  frameborder="0" name="mainFrame" width="100%" height="522"></iframe>
+                <iframe src="./main.php"  frameborder="0" name="mainFrame" width="100%" height="522"></iframe>
                 <!-- 嵌套网页结束 -->   
             </div>
         </div>
