@@ -12,11 +12,3 @@ function alertMsg($msg, $url){
     echo "<script>alert('{$msg}');</script>";
     echo "<script>window.location='{$url}';</script>>";
 }
-/**
- * 判断是否登录
-*/
-function checkLogined(){
-    if($_SESSION['adminId'] == ''){
-        alertMsg('请先登录！', 'login.php');
-    }
-}
