@@ -13,8 +13,8 @@
 			<td><?php echo PHP_OS;?></td>
 		</tr>
 		<tr>
-			<th>Apache版本</th>
-			<td><?php echo apache_get_version();?></td>
+			<th>WEB服务器</th>
+			<td>nginx</td>
 		</tr>
 		<tr>
 			<th>PHP版本</th>
@@ -33,11 +33,11 @@
 		</tr>
 		<tr>
 			<th>开发团队</th>
-			<td>King&慕课网的小伙伴</td>
+			<td>myself</td>
 		</tr>
 		<tr>
-			<th>公司网址</th>
-			<td><a href="http://www.imooc.com">http://www.imooc.com</a></td>
+			<th>个人博客</th>
+			<td><a href="http://blog.csdn.net/maosilu_ice ">http://blog.csdn.net/maosilu_ice </a></td>
 		</tr>
 		<tr>
 			<th>成功案例</th>
