@@ -61,5 +61,9 @@ if(!$res){
     function delAdmin(id){
         window.location='doAdminAction.php?act=delAdmin&id='+id;
     }
+    //添加操作
+    function addAdmin(){
+        window.location='addAdmin.php';
+    }
 </script>
 </html>
