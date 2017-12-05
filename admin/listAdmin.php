@@ -1,3 +1,10 @@
+<?php
+require_once '../include.php';
+$res = getAllAdmin();
+if(!$res){
+    alertMsg('Sorry,没有管理员，请添加！', 'addAdmin.php');
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,13 +31,18 @@
         </tr>
         </thead>
         <tbody>
+        <?php
+            $i = 1;
+            foreach($res as $row){
+        ?>
             <tr>
                 <!--这里的id和for里面的c1 需要循环出来-->
-                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label">1111</label></td>
-                <td>111</td>
-                <td>111</td>
-                <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $row['id'];?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $row['id'];?>)"></td>
+                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $i;?></label></td>
+                <td><?php echo $row['username'];?></td>
+                <td><?php echo $row['email'];?></td>
+                <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin('editAdmin', <?php echo $row['id'];?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $row['id'];?>)"></td>
             </tr>
+        <?php $i++;}?>
         <?php if($totalRows>$pageSize):?>
             <tr>
                 <td colspan="4"><?php echo showPage($page, $totalPage);?></td>
@@ -40,4 +52,9 @@
     </table>
 </div>
 </body>
+<script type="text/javascript">
+    function editAdmin(act, id){
+        window.location='addAdmin.php?act='+act+'&id='+id;
+    }
+</script>
 </html>

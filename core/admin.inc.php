@@ -34,6 +34,9 @@ function logout(){
     session_destroy();
     header('location:login.php');
 }
+/**
+ * 添加管理员
+*/
 function addAdmin(){
     $arr = $_POST;
     $arr['password'] = md5($_POST['password']);
@@ -42,5 +45,42 @@ function addAdmin(){
     }else{
         $msg = "添加失败！<a href='addAdmin.php'>重新添加</a>";
     }
+    echo $msg;die;
     return $msg;
+}
+/**
+ * 修改管理员
+*/
+function editAdmin(){
+    $arr = $_POST;
+    $row = fetchOne("SELECT username,password,email FROM imooc_admin WHERE id={$arr['id']}");
+    if($row['password'] == $arr['password']){
+        $res = update('imooc_admin', $arr, "id={$arr['id']}");
+    }else{
+        $arr['password'] = md5($arr['password']);
+        $res = update('imooc_admin', $arr, "id={$arr['id']}");
+    }
+    if($res){
+        $msg = "修改成功！|<a href='listAdmin.php'>查看管理员列表</a>";
+    }else{
+        $msg = "修改失败！|<a href='listAdmin.php'>查看管理员列表</a>";
+    }
+
+    unset($arr);
+    unset($row);
+    unset($res);
+
+    return $msg;
+}
+/**
+ * 获取所有管理员
+*/
+function getAllAdmin(){
+    return fetchAll("SELECT id,username,email FROM imooc_admin");
+}
+/**
+ * 获取指定管理员
+*/
+function getOneAdmin($id){
+    return fetchOne("SELECT username,password,email FROM imooc_admin WHERE id={$id}");
 }

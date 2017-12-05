@@ -44,7 +44,7 @@ function update($table, $array, $where=null){
         }else{
             $sep = ',';
         }
-        $str .= $sep.$key."='.$value.'";
+        $str .= $sep.$key."='$value'";
     }
     $sql = "UPDATE {$table} SET {$str} ".($where==null?null:'WHERE '.$where);
     mysqli_query($link, $sql);
