@@ -24,7 +24,7 @@ function insert($table, $array){
     $link = connect();
     $keys = join(',', array_keys($array));
     $values = "'".join("','", array_values($array))."'";
-    $sql = "INSERT INTO {$table}{$keys} VALUES({$values})";
+    $sql = "INSERT INTO {$table}({$keys}) VALUES({$values})";
     mysqli_query($link, $sql);
     return mysqli_insert_id($link);
 }

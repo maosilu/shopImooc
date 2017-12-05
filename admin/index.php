@@ -6,7 +6,7 @@ checkLogined();
 <html>
 <head>
 <meta charset="utf-8">
-<title>-.-</title>
+<title>后台管理</title>
 <link rel="stylesheet" href="../public/admin/styles/backstage.css">
 </head>
 
