@@ -63,13 +63,27 @@ function editAdmin(){
     if($res){
         $msg = "修改成功！|<a href='listAdmin.php'>查看管理员列表</a>";
     }else{
-        $msg = "修改失败！|<a href='listAdmin.php'>查看管理员列表</a>";
+        $msg = "修改失败！|<a href='listAdmin.php'>请重新修改</a>";
     }
 
     unset($arr);
     unset($row);
     unset($res);
 
+    return $msg;
+}
+/**
+ * 删除管理员
+*/
+function delAdmin(){
+    $id = $_GET['id'];
+    $res = delete('imooc_admin', "id={$id}");
+    if($res){
+        $msg = "删除成功！|<a href='listAdmin.php'>查看管理员列表</a>";
+    }else{
+        $msg = "删除失败！|<a href='listAdmin.php'>请重新删除</a>";
+    }
+    unset($res);
     return $msg;
 }
 /**

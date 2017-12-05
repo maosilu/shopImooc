@@ -53,8 +53,13 @@ if(!$res){
 </div>
 </body>
 <script type="text/javascript">
+    //修改操作
     function editAdmin(act, id){
         window.location='addAdmin.php?act='+act+'&id='+id;
+    }
+    //删除操作
+    function delAdmin(id){
+        window.location='doAdminAction.php?act=delAdmin&id='+id;
     }
 </script>
 </html>
