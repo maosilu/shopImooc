@@ -59,7 +59,9 @@ if(!$res){
     }
     //删除操作
     function delAdmin(id){
-        window.location='doAdminAction.php?act=delAdmin&id='+id;
+        if(window.confirm("您确定要删除吗？")){
+            window.location='doAdminAction.php?act=delAdmin&id='+id;
+        }
     }
     //添加操作
     function addAdmin(){
