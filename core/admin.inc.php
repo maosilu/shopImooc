@@ -98,3 +98,17 @@ function getAllAdmin(){
 function getOneAdmin($id){
     return fetchOne("SELECT username,password,email FROM imooc_admin WHERE id={$id}");
 }
+function getAdminByPage($pageSize=2){
+    global $page,$totalPage;
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $totalRows = getResultNum("SELECT id FROM imooc_admin");
+    $totalPage = ceil($totalRows/$pageSize);
+    if($page<1 || $page==null || !is_numeric($page)){
+        $page = 1;
+    }
+    if($page > $totalPage) $page = $totalPage;
+    $offset = ($page-1) * $pageSize;
+    $sql = "SELECT id,username,email FROM imooc_admin LIMIT {$offset}, {$pageSize}";
+    $res = fetchAll($sql);
+    return $res;
+}

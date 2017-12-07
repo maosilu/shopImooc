@@ -5,7 +5,7 @@
  * Date: 2017/10/19
  * Time: 上午10:10
  */
-require_once '../include.php';
+/*require_once '../include.php';
 $sql = "SELECT * FROM imooc_admin";
 $totalRows = getResultNum($sql);
 $pageSize = 2;
@@ -22,7 +22,7 @@ $sql = "SELECT * FROM imooc_admin LIMIT {$offset}, {$pageSize}";
 $res = fetchAll($sql);
 echo "<pre>";
 var_dump($res);
-echo showPage($page, $totalPage, 'cid=5');
+echo showPage($page, $totalPage, 'cid=5');*/
 function showPage($page, $totalPage, $where=null, $sep="&nbsp;"){
     $where = $where==null ? null : '&'.$where;
     $url = $_SERVER['PHP_SELF'];

@@ -1,6 +1,19 @@
 <?php
 require_once '../include.php';
-$res = getAllAdmin();
+
+$res = getAdminByPage();
+/*$pageSize = 2;
+$totalRows = getResultNum("SELECT id FROM imooc_admin");
+$totalPage = ceil($totalRows/$pageSize);
+
+if($page<1 || $page==null || !is_numeric($page)){
+    $page = 1;
+}
+if($page > $totalPage) $page = $totalPage;
+
+$offset = ($page-1) * $pageSize;
+$sql = "SELECT id,username,email FROM imooc_admin LIMIT {$offset}, {$pageSize}";
+$res = fetchAll($sql);*/
 if(!$res){
     alertMsg('Sorry,没有管理员，请添加！', 'addAdmin.php');
 }
@@ -43,11 +56,9 @@ if(!$res){
                 <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin('editAdmin', <?php echo $row['id'];?>)"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $row['id'];?>)"></td>
             </tr>
         <?php $i++;}?>
-        <?php if($totalRows>$pageSize):?>
             <tr>
-                <td colspan="4"><?php echo showPage($page, $totalPage);?></td>
+                <td colspan="4"><?php echo showPage($page,$totalPage);?></td>
             </tr>
-        <?php endif;?>
         </tbody>
     </table>
 </div>
